@@ -137,7 +137,7 @@ public class KeycloakAuthenticationBackend implements IAuthenticationBackend {
 		// If in the future we need a RequestMatcher for het ACCESS_TOKEN, we can implement one ourself
 		RequestMatcher requestMatcher =
 				new OrRequestMatcher(
-	                    new AntPathRequestMatcher(KeycloakAuthenticationProcessingFilter.DEFAULT_LOGIN_URL),
+	                    new AntPathRequestMatcher(KeycloakAuthenticationEntryPoint.DEFAULT_LOGIN_URI),
 	                    new RequestHeaderRequestMatcher(KeycloakAuthenticationProcessingFilter.AUTHORIZATION_HEADER)
 	            );
 
