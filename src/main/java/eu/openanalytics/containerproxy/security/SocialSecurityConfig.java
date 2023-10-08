@@ -59,10 +59,10 @@ import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.connect.web.ProviderSignInController;
 import org.springframework.social.connect.web.SignInAdapter;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
-import org.springframework.social.github.connect.GitHubConnectionFactory;
+//import org.springframework.social.github.connect.GitHubConnectionFactory;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
-import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
-import org.springframework.social.twitter.connect.TwitterConnectionFactory;
+//import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
+//import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 
 @Configuration
@@ -146,15 +146,15 @@ public class SocialSecurityConfig implements SocialConfigurer {
 			case facebook:
 				return new FacebookConnectionFactory(appId, appSecret);
 			case twitter:
-				return new TwitterConnectionFactory(appId, appSecret);
+				return null;//new TwitterConnectionFactory(appId, appSecret);
 			case google:
 				GoogleConnectionFactory factory = new GoogleConnectionFactory(appId, appSecret);
 				factory.setScope("openid profile");
 				return factory;
 			case linkedin:
-				return new LinkedInConnectionFactory(appId, appSecret);
+				return null;//new LinkedInConnectionFactory(appId, appSecret);
 			case github:
-				return new GitHubConnectionFactory(appId, appSecret);
+				return null;//new GitHubConnectionFactory(appId, appSecret);
 			default:
 				return null;
 			}

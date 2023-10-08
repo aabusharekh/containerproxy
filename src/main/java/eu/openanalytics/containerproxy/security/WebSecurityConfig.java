@@ -119,7 +119,7 @@ public class WebSecurityConfig  {
 
 	
 	public void configure(WebSecurity web) {
-		if (s != null) {
+		if (customConfigs != null) {
 			for (ICustomSecurityConfig cfg: customConfigs) {
 				try {
 					cfg.apply(web);
@@ -324,7 +324,6 @@ public class WebSecurityConfig  {
 
 	@Bean(name="authenticationManager")
 	@ConditionalOnExpression("'${proxy.authentication}' == 'keycloak'")
-	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
