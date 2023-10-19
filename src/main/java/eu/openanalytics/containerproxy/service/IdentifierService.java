@@ -34,7 +34,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -42,6 +42,7 @@ import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Very simple service that keeps track of the identifiers of this ShinyProxy instance + server.
@@ -70,7 +71,7 @@ public class IdentifierService {
 
     private final Logger logger = LogManager.getLogger(getClass());
 
-    @Inject
+    @Autowired
     private Environment environment;
 
     @PostConstruct

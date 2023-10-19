@@ -65,7 +65,7 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.inject.Inject;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -92,25 +92,25 @@ public class WebSecurityConfig {
     private final Logger logger = LogManager.getLogger(getClass());
     
 
-    @Inject
+    @Autowired
     private UserLogoutHandler logoutHandler;
 
-    @Inject
+    @Autowired
     private IAuthenticationBackend auth;
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     private AppRecoveryFilter appRecoveryFilter;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     @Autowired(required = false)
     private List<ICustomSecurityConfig> customConfigs;
 
-    @Inject
+    @Autowired
     @Lazy
     private SavedRequestAwareAuthenticationSuccessHandler successHandler;
 

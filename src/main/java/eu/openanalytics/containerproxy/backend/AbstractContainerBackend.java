@@ -42,7 +42,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.Authentication;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
@@ -57,6 +57,7 @@ import java.util.Properties;
 import java.util.function.BiConsumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractContainerBackend implements IContainerBackend {
 
@@ -72,23 +73,23 @@ public abstract class AbstractContainerBackend implements IContainerBackend {
 	private boolean useInternalNetwork;
 	private boolean privileged;
 
-	@Inject
+	@Autowired
 	protected IProxyTargetMappingStrategy mappingStrategy;
 
-	@Inject
+	@Autowired
 	protected Environment environment;
 
-	@Inject
+	@Autowired
 	@Lazy
 	// Note: lazy needed to work around early initialization conflict
 	protected IAuthenticationBackend authBackend;
 
-	@Inject
+	@Autowired
 	@Lazy
 	// Note: lazy to prevent cyclic dependencies
 	protected AppRecoveryService appRecoveryService;
 
-	@Inject
+	@Autowired
 	protected IdentifierService identifierService;
 
 	@Override

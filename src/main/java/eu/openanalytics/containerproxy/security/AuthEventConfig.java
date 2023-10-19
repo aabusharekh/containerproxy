@@ -21,21 +21,22 @@
 package eu.openanalytics.containerproxy.security;
 
 import eu.openanalytics.containerproxy.auth.IAuthenticationBackend;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
 
-import javax.inject.Inject;
+
 
 @Configuration
 public class AuthEventConfig {
 
-    @Inject
+    @Autowired
     private IAuthenticationBackend auth;
 
-    @Inject
+    @Autowired
     private AuthenticationEventPublisher eventPublisher;
 
     @Bean

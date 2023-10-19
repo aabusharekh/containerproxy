@@ -28,23 +28,24 @@ import eu.openanalytics.containerproxy.util.ProxyMappingManager;
 import eu.openanalytics.containerproxy.util.ContextPathHelper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.inject.Inject;
+
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class ProxyRouteController extends BaseController {
 
-	@Inject
+	@Autowired
 	private UserService userService;
 	
-	@Inject
+	@Autowired
 	private ProxyService proxyService;
 	
-	@Inject
+	@Autowired
 	private ProxyMappingManager mappingManager;
 	
 	@RequestMapping(value="/api/route/**")

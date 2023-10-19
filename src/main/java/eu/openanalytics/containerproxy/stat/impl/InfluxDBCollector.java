@@ -24,7 +24,7 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

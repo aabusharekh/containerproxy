@@ -65,7 +65,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -88,13 +88,13 @@ public class OpenIDAuthenticationBackend implements IAuthenticationBackend {
 	
 	private final Logger log = LogManager.getLogger(OpenIDAuthenticationBackend.class);
 	
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private ClientRegistrationRepository clientRegistrationRepo;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private SavedRequestAwareAuthenticationSuccessHandler successHandler;
 
@@ -105,7 +105,7 @@ public class OpenIDAuthenticationBackend implements IAuthenticationBackend {
 		OpenIDAuthenticationBackend.oAuth2AuthorizedClientService = oAuth2AuthorizedClientService;
 	}
 
-	@Inject
+	@Autowired
 	private OpenIdReAuthorizeFilter openIdReAuthorizeFilter;
 
 	@Override
@@ -186,7 +186,7 @@ public class OpenIDAuthenticationBackend implements IAuthenticationBackend {
 		env.put(ENV_TOKEN_NAME, client.getAccessToken().getTokenValue());
 	}
 
-	@Inject
+	@Autowired
 	private SpecExpressionResolver specExpressionResolver;
 
 	@Override

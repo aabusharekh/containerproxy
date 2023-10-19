@@ -30,9 +30,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 
-import javax.inject.Inject;
+
 
 import org.apache.logging.log4j.LogManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,8 +50,8 @@ public class FaviconConfig {
 
 	private static final String CONTENT_TYPE_ICO = "image/x-icon";
 	
-	@Inject
-    private Environment environment;
+	@Autowired
+        private Environment environment;
 	
 	@Bean
 	@ConditionalOnProperty(name="proxy.favicon-path")

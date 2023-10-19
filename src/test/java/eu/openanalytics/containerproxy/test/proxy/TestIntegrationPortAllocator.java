@@ -40,7 +40,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.TestPropertySourceUtils;
 
 import javax.annotation.Nonnull;
-import javax.inject.Inject;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
@@ -49,6 +49,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -60,10 +61,10 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 @TestInstance(PER_CLASS)
 public class TestIntegrationPortAllocator {
 
-    @Inject
+    @Autowired
     private RedisTemplate<String, RedisPortAllocator.PortList> portTemplate;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     private Stream<Arguments> parameters() {

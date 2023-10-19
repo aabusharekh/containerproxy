@@ -66,7 +66,7 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 import org.springframework.web.filter.FormContentFilter;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
@@ -93,13 +93,13 @@ public class ContainerProxyApplication {
 	public static final String CONFIG_FILENAME = "application.yml";
 	public static final String CONFIG_DEMO_PROFILE = "demo";
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private ProxyMappingManager mappingManager;
 
-	@Inject
+	@Autowired
 	private DefaultCookieSerializer defaultCookieSerializer;
 
 	private final Logger log = LogManager.getLogger(getClass());

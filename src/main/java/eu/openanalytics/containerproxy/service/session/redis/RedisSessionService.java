@@ -36,7 +36,7 @@ import org.springframework.session.data.redis.RedisIndexedSessionRepository;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
@@ -44,6 +44,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisOperations;
 
 @Component
@@ -55,10 +56,10 @@ public class RedisSessionService extends AbstractSessionService {
 
     private final Log logger = LogFactory.getLog(RedisSessionService.class);
 
-    @Inject
+    @Autowired
     private RedisIndexedSessionRepository redisIndexedSessionRepository;
 
-    @Inject
+    @Autowired
     private RedisSessionConfig redisSessionConfig;
 
     private String keyPattern;

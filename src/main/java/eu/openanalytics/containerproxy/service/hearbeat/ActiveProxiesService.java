@@ -35,9 +35,10 @@ import org.springframework.core.env.Environment;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.Timer;
 import java.util.TimerTask;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Service which 1) keeps track of active proxies by listening for heartbeats (created by {@link HeartbeatService})
@@ -51,19 +52,19 @@ public class ActiveProxiesService implements IHeartbeatProcessor {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final StructuredLogger slog = new StructuredLogger(log);
 
-    @Inject
+    @Autowired
     protected IHeartbeatStore heartbeatStore;
 
-    @Inject
+    @Autowired
     protected Environment environment;
 
-    @Inject
+    @Autowired
     protected ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private IProxyReleaseStrategy releaseStrategy;
 
-    @Inject
+    @Autowired
     private ILeaderService leaderService;
 
     @PostConstruct

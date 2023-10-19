@@ -25,7 +25,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 /**
  * Service which updates the "last active time" of a Session when an Websocket heartbeat is received.
@@ -34,7 +35,7 @@ import javax.inject.Inject;
 @Service
 public class SessionReActivatorService implements IHeartbeatProcessor {
 
-    @Inject
+    @Autowired
     private ISessionService sessionService;
 
     @Override

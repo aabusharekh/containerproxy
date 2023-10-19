@@ -27,14 +27,15 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class RedisHeartbeatStore implements IHeartbeatStore, ICleanupStoppedProxies {
 
-    @Inject
+    @Autowired
     private RedisTemplate<String, Long> redisTemplate;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     private String redisKey;

@@ -45,7 +45,7 @@ import org.w3c.dom.Element;
 
 import javax.annotation.Nonnull;
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -55,6 +55,7 @@ import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.saml2.provider.service.authentication.OpenSaml4AuthenticationProvider;
 import org.springframework.security.saml2.provider.service.web.authentication.logout.OpenSaml4LogoutRequestResolver;
 
@@ -85,7 +86,7 @@ public class SAMLConfiguration {
     public static final String SAML_LOGOUT_SERVICE_RESPONSE_LOCATION_PATH = "/saml/SingleLogout";
     public static final String SAML_METADATA_PATH = "/saml/metadata";
 
-    @Inject
+    @Autowired
     private Environment environment;
 
     @PostConstruct

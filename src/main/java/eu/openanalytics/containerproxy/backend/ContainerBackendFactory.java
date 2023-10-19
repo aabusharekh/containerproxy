@@ -28,9 +28,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Nonnull;
-import javax.inject.Inject;
+
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class ContainerBackendFactory extends AbstractFactoryBean<IContainerBackend> implements ApplicationContextAware {
@@ -55,7 +56,7 @@ public class ContainerBackendFactory extends AbstractFactoryBean<IContainerBacke
 
 	private ApplicationContext applicationContext;
 
-	@Inject
+	@Autowired
 	protected Environment environment;
 
 	@Override

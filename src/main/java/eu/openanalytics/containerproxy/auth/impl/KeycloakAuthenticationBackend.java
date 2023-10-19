@@ -68,7 +68,7 @@ import org.springframework.security.web.util.matcher.RequestHeaderRequestMatcher
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -76,23 +76,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class KeycloakAuthenticationBackend implements IAuthenticationBackend {
 
 	public static final String NAME = "keycloak";
 	
-	@Inject
+	@Autowired
 	Environment environment;
 
-	@Inject
+	@Autowired
 	ApplicationContext ctx;
 
-	@Inject
+	@Autowired
 	@Lazy
 	AuthenticationManager authenticationManager;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private SavedRequestAwareAuthenticationSuccessHandler successHandler;
 

@@ -30,7 +30,7 @@ import ch.qos.logback.core.rolling.RollingPolicy;
 import net.logstash.logback.encoder.LogstashEncoder;
 import net.logstash.logback.stacktrace.ShortenedThrowableConverter;
 import org.slf4j.ILoggerFactory;
-import org.slf4j.impl.StaticLoggerBinder;
+
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.boot.logging.LoggingSystem;
 import org.springframework.context.ApplicationListener;
@@ -50,12 +50,12 @@ public class LoggingConfigurer implements ApplicationListener<ApplicationPrepare
         Boolean logAsJson = event.getApplicationContext().getEnvironment().getProperty(PROP_LOG_AS_JSON, Boolean.class, false);
 
         if (logAsJson) {
-            ILoggerFactory factory = StaticLoggerBinder.getSingleton().getLoggerFactory();
-            LoggerContext context = (LoggerContext) factory;
-            Logger logger = context.getLogger(LoggingSystem.ROOT_LOGGER_NAME);
+            // ILoggerFactory factory = StaticLoggerBinder.getSingleton().getLoggerFactory();
+            //LoggerContext context = (LoggerContext) factory;
+            //Logger logger = context.getLogger(LoggingSystem.ROOT_LOGGER_NAME);
 
-            setupConsoleAppender(context, logger);
-            setupFileAppender(context, logger);
+            //setupConsoleAppender(context, logger);
+            //setupFileAppender(context, logger);
         }
     }
 

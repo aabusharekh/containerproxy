@@ -34,8 +34,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.inject.Inject;
+
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class AuthController extends BaseController {
@@ -43,10 +44,10 @@ public class AuthController extends BaseController {
 	public static final String AUTH_SUCCESS_URL = "/auth-success";
 	public static final String AUTH_SUCCESS_URL_SESSION_ATTR = "AUTH_SUCCESS_URL_SESSION_ATTR";
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private IAuthenticationBackend auth;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

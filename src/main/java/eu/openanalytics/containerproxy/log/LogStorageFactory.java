@@ -20,7 +20,8 @@
  */
 package eu.openanalytics.containerproxy.log;
 
-import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.context.ApplicationContext;
@@ -32,10 +33,10 @@ import org.springframework.stereotype.Service;
 @Primary
 public class LogStorageFactory extends AbstractFactoryBean<ILogStorage> {
 
-	@Inject
+	@Autowired
 	private Environment environment;
 	
-	@Inject
+	@Autowired
 	private ApplicationContext applicationContext;
 	
 	@Override

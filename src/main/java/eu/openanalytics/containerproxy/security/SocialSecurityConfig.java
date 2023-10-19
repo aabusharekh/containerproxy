@@ -26,9 +26,10 @@ import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
+
 
 import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -181,7 +182,7 @@ public class SocialSecurityConfig implements SocialConfigurer {
 
 		private final RequestCache requestCache;
 
-		@Inject
+		@Autowired
 		public SimpleSignInAdapter(RequestCache requestCache) {
 			this.requestCache = requestCache;
 		}

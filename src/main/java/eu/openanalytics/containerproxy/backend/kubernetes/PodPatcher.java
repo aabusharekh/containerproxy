@@ -31,16 +31,17 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import javax.json.JsonPatch;
 import javax.json.JsonStructure;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class PodPatcher {
 
 	public static final String DEBUG_PROPERTY = "proxy.kubernetes.debug-patches";
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
 	private final ObjectMapper mapper = new ObjectMapper();

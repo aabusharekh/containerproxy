@@ -31,8 +31,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
 import javax.annotation.Nonnull;
-import javax.inject.Inject;
+
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 public class TemplateResolverConfig implements WebMvcConfigurer {
@@ -41,10 +42,10 @@ public class TemplateResolverConfig implements WebMvcConfigurer {
 
 	public static final String PROP_CORS_ALLOWED_ORIGINS = "proxy.api-security.cors-allowed-origins";
 
-	@Inject
-    private Environment environment;
+	@Autowired
+        private Environment environment;
 
-	@Inject
+	@Autowired
 	private IdentifierService identifierService;
 	
 	@Override

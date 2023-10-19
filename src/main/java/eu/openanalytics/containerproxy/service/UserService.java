@@ -50,11 +50,12 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class UserService {
@@ -63,21 +64,21 @@ public class UserService {
 
 	private final Logger log = LogManager.getLogger(UserService.class);
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	@Lazy
 	// Note: lazy needed to work around early initialization conflict 
 	private IAuthenticationBackend authBackend;
 	
-	@Inject
+	@Autowired
 	private IProxyLogoutStrategy logoutStrategy;
 
-	@Inject
+	@Autowired
 	private ApplicationEventPublisher applicationEventPublisher;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private ProxyAccessControlService accessControlService;
 

@@ -38,7 +38,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.inject.Inject;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -47,16 +47,17 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootTest(classes = {TestIntegrationOnKube.TestConfiguration.class, ContainerProxyApplication.class})
 @ContextConfiguration(initializers = PropertyOverrideContextInitializer.class)
 @ActiveProfiles("parameters")
 public class TestParametersService {
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private ParametersService parametersService;
 
     private Authentication auth = mock(Authentication.class);

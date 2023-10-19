@@ -54,21 +54,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
 
-import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 public class ProxyStatusController {
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private AsyncProxyService asyncProxyService;
 
-    @Inject
+    @Autowired
     private UserService userService;
 
     private final ConcurrentHashMap<String, List<DeferredResult<ResponseEntity<ApiResponse<Proxy>>>>> watchers = new ConcurrentHashMap<>();

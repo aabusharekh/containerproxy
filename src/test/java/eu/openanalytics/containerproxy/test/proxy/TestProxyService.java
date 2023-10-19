@@ -22,7 +22,7 @@ package eu.openanalytics.containerproxy.test.proxy;
 
 import java.net.URI;
 
-import javax.inject.Inject;
+
 
 import eu.openanalytics.containerproxy.service.InvalidParametersException;
 import eu.openanalytics.containerproxy.service.UserService;
@@ -42,17 +42,17 @@ import eu.openanalytics.containerproxy.model.spec.ProxySpec;
 import eu.openanalytics.containerproxy.service.ProxyService;
 import eu.openanalytics.containerproxy.test.proxy.TestProxyService.TestConfiguration;
 import eu.openanalytics.containerproxy.util.ProxyMappingManager;
-
+import org.springframework.beans.factory.annotation.Autowired;
 @SpringBootTest(classes= {TestConfiguration.class, ContainerProxyApplication.class})
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 @ContextConfiguration(initializers = PropertyOverrideContextInitializer.class)
 public class TestProxyService {
 
-	@Inject
+	@Autowired
 	private Environment environment;
 	
-	@Inject
+	@Autowired
 	private ProxyService proxyService;
 	
 	@Test

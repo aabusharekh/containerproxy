@@ -36,10 +36,11 @@ import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizedCli
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 
-import javax.inject.Inject;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @ConditionalOnProperty(name = "proxy.authentication", havingValue = "openid")
@@ -47,7 +48,7 @@ public class OpenIDConfiguration {
 
     public static final String REG_ID = "shinyproxy";
 
-    @Inject
+    @Autowired
     private Environment environment;
 
     @Bean

@@ -36,6 +36,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Nonnull;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class StatCollectorFactory implements BeanFactoryPostProcessor, EnvironmentAware {
@@ -46,6 +47,7 @@ public class StatCollectorFactory implements BeanFactoryPostProcessor, Environme
     private static final String PROP_USAGE_STATS_MULTI_USERNAME = "proxy.usage-stats[%d].username";
     private static final String PROP_USAGE_STATS_MULTI_PASSWORD = "proxy.usage-stats[%d].password";
 
+    @Autowired
     private Environment environment;
 
     @Override

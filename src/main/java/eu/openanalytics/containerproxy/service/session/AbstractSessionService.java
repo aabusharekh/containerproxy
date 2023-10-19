@@ -23,14 +23,15 @@ package eu.openanalytics.containerproxy.service.session;
 import eu.openanalytics.containerproxy.auth.IAuthenticationBackend;
 import eu.openanalytics.containerproxy.auth.impl.NoAuthenticationBackend;
 import eu.openanalytics.containerproxy.util.Sha256;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 
-import javax.inject.Inject;
+
 
 abstract public class AbstractSessionService implements ISessionService {
 
-    @Inject
+    @Autowired
     @Lazy
     // Note: lazy needed to work around early initialization conflict
     // Only used to check whether we are using Authentication none

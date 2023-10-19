@@ -41,13 +41,14 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.BiConsumer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class LogService {
@@ -59,16 +60,16 @@ public class LogService {
 	// do not use ProxyHashMap
 	private ConcurrentHashMap<String, LogStreams> proxyStreams = new ConcurrentHashMap<>();
 
-	@Inject
+	@Autowired
 	ILogStorage logStorage;
 
-	@Inject
+	@Autowired
 	ILeaderService iLeaderService;
 
-	@Inject
+	@Autowired
 	ProxyService proxyService;
 
-	@Inject
+	@Autowired
 	IContainerBackend backend;
 
 	@PostConstruct

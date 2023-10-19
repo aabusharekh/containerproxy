@@ -24,18 +24,19 @@ import eu.openanalytics.containerproxy.model.runtime.Proxy;
 import eu.openanalytics.containerproxy.util.ProxyHashMap;
 import org.springframework.core.env.Environment;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractLogStorage implements ILogStorage {
 
     private ConcurrentHashMap<String, LogPaths> proxyStreams = ProxyHashMap.create();
 
-    @Inject
+    @Autowired
     protected Environment environment;
 
     protected String containerLogPath;

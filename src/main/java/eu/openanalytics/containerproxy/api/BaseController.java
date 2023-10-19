@@ -23,11 +23,11 @@ package eu.openanalytics.containerproxy.api;
 import org.springframework.core.env.Environment;
 import org.springframework.ui.ModelMap;
 
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class BaseController {
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
 	protected void prepareMap(ModelMap map) {

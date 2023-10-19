@@ -30,21 +30,22 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class RedisProxyStore implements IProxyStore {
 
-    @Inject
+    @Autowired
     private RedisTemplate<String, Proxy> redisTemplate;
 
-    @Inject
+    @Autowired
     private ProxyMappingManager mappingManager;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     private final Logger logger = LogManager.getLogger(RedisProxyStore.class);

@@ -31,17 +31,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
-import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration(proxyBeanMethods = false)
 public class MicrometerRegistryConfiguration {
 
     private static final String PROP_METRIC_PREFIX = "proxy.usage-stats-micrometer-prefix";
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     private String getPrefix() {

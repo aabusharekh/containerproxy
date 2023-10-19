@@ -30,11 +30,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * This service releases proxies which reached their max-lifetime.
@@ -47,13 +48,13 @@ public class ProxyMaxLifetimeService {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final StructuredLogger slog = new StructuredLogger(log);
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private IProxyReleaseStrategy releaseStrategy;
 
-    @Inject
+    @Autowired
     private ILeaderService leaderService;
 
     @PostConstruct

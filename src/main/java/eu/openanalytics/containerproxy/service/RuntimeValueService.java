@@ -52,10 +52,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Determines the RuntimeValue when a proxy gets started.
@@ -73,13 +74,13 @@ public class RuntimeValueService {
 
     private long defaultMaxLifetime;
 
-    @Inject
+    @Autowired
     private ParametersService parametersService;
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     protected IdentifierService identifierService;
 
     @PostConstruct

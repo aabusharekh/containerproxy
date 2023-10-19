@@ -31,18 +31,19 @@ import org.springframework.integration.support.locks.ExpirableLockRegistry;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.Nonnull;
-import javax.inject.Inject;
+
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Service that can be used to execute code on only one ShinyProxy Server even in HA-mode.
  */
 public class RedisLeaderService implements Candidate, ILeaderService {
 
-    @Inject
+    @Autowired
     private ExpirableLockRegistry lockRegistry;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
     private volatile boolean isLeader;

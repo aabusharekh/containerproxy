@@ -48,7 +48,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
+
 
 import static eu.openanalytics.containerproxy.auth.impl.saml.SAMLConfiguration.PROP_SAML_LOGOUT_METHOD;
 import static eu.openanalytics.containerproxy.auth.impl.saml.SAMLConfiguration.PROP_SUCCESS_LOGOUT_URL;
@@ -66,20 +66,20 @@ public class SAMLAuthenticationBackend implements IAuthenticationBackend {
 
     public static final String NAME = "saml";
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     @SuppressWarnings("deprecation")
     private OpenSaml4AuthenticationProvider samlAuthenticationProvider;
 
     @Autowired
     private RelyingPartyRegistrationRepository relyingPartyRegistrationRepository;
 
-    @Inject
+    @Autowired
     private Saml2LogoutRequestResolver saml2LogoutRequestResolver;
 
-    @Inject
+    @Autowired
     @Lazy
     private SavedRequestAwareAuthenticationSuccessHandler successHandler;
 

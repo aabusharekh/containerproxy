@@ -26,18 +26,19 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.web.annotation.WebEndpoint;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @WebEndpoint(id = "recyclable")
 public class RecyclableEndpoint {
 
-    @Inject
+    @Autowired
     private WebSocketCounterService webSocketCounterService;
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
     @ReadOperation

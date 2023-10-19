@@ -51,7 +51,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.inject.Inject;
+
 import java.net.URI;
 import java.time.Duration;
 import java.time.Instant;
@@ -64,6 +64,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>
@@ -82,34 +83,34 @@ public class ProxyService {
 		
 	private final StructuredLogger log = StructuredLogger.create(getClass());
 
-	@Inject
+	@Autowired
 	private IProxyStore proxyStore;
 
-	@Inject
+	@Autowired
 	private IProxySpecProvider baseSpecProvider;
 	
-	@Inject
+	@Autowired
 	private IContainerBackend backend;
 
-	@Inject
+	@Autowired
 	private ProxyMappingManager mappingManager;
 	
-	@Inject
+	@Autowired
 	private UserService userService;
 	
-	@Inject
+	@Autowired
 	private ApplicationEventPublisher applicationEventPublisher;
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private RuntimeValueService runtimeValueService;
 
-	@Inject
+	@Autowired
 	private SpecExpressionResolver expressionResolver;
 
-	@Inject
+	@Autowired
 	protected IProxyTestStrategy testStrategy;
 
 	private boolean stopAppsOnShutdown;

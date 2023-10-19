@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
+
 
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -33,6 +33,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer.AuthorizedUrl;
 
 import eu.openanalytics.containerproxy.auth.IAuthenticationBackend;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Simple authentication method where user/password combinations are
@@ -42,7 +43,7 @@ public class SimpleAuthenticationBackend implements IAuthenticationBackend {
 
 	public static final String NAME = "simple";
 	
-	@Inject
+	@Autowired
 	private Environment environment;
 	
 	@Override

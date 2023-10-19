@@ -43,7 +43,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.event.EventListener;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,18 +52,19 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.ToDoubleFunction;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Micrometer implements IStatCollector {
 
     private static final int CACHE_UPDATE_INTERVAL = 20 * 1000; // update cache every 20 seconds
 
-    @Inject
+    @Autowired
     private MeterRegistry registry;
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private ISessionService sessionService;
 
     private final Logger logger = LogManager.getLogger(getClass());

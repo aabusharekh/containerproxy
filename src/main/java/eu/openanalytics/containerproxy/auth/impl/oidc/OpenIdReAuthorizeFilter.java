@@ -39,7 +39,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -50,6 +50,7 @@ import static eu.openanalytics.containerproxy.auth.impl.oidc.OpenIDConfiguration
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Ensures that the access token of the user is refreshed when needed.
@@ -76,13 +77,13 @@ public class OpenIdReAuthorizeFilter extends OncePerRequestFilter {
             new AntPathRequestMatcher("/"),
             REFRESH_OPENID_MATCHER);
 
-    @Inject
+    @Autowired
     private OAuth2AuthorizedClientManager oAuth2AuthorizedClientManager;
 
-    @Inject
+    @Autowired
     private OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 
-    @Inject
+    @Autowired
     private Environment environment;
 
     private final Clock clock = Clock.systemUTC();

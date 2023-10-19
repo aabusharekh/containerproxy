@@ -39,10 +39,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Service to recover running apps after restart.
@@ -57,19 +58,19 @@ public class AppRecoveryService {
 
 	private final Logger log = LogManager.getLogger(AppRecoveryService.class);
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private IContainerBackend containerBackend;
 
-	@Inject
+	@Autowired
 	private ProxyService proxyService;
 
-	@Inject
+	@Autowired
 	private HeartbeatService heartbeatService;
 
-	@Inject
+	@Autowired
 	private IdentifierService identifierService;
 
 	private boolean isReady = false;

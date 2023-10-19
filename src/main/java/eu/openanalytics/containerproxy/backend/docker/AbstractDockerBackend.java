@@ -37,7 +37,7 @@ import eu.openanalytics.containerproxy.model.runtime.runtimevalues.RuntimeValueK
 import eu.openanalytics.containerproxy.model.runtime.runtimevalues.RuntimeValueKeyRegistry;
 import eu.openanalytics.containerproxy.service.portallocator.IPortAllocator;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.ClosedChannelException;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public abstract class AbstractDockerBackend extends AbstractContainerBackend {
@@ -59,7 +60,7 @@ public abstract class AbstractDockerBackend extends AbstractContainerBackend {
 
 	protected static final String DEFAULT_TARGET_URL = DEFAULT_TARGET_PROTOCOL + "://localhost";
 
-	@Inject
+	@Autowired
 	protected IPortAllocator portAllocator;
 	protected DockerClient dockerClient;
 

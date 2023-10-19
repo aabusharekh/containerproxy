@@ -44,7 +44,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -53,6 +53,7 @@ import java.util.Map;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootTest(classes = {TestIntegrationOnKube.TestConfiguration.class, ContainerProxyApplication.class})
 @ContextConfiguration(initializers = PropertyOverrideContextInitializer.class)
@@ -62,13 +63,13 @@ public class TestParameterServiceAccessControl {
     private ParametersService parametersService;
     private IAuthenticationBackend authBackend;
 
-    @Inject
+    @Autowired
     private IProxySpecProvider proxySpecProvider;
 
-    @Inject
+    @Autowired
     private ObjectMapper objectMapper;
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
     private UserService userService;
 

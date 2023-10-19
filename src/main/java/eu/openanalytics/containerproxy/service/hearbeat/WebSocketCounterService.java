@@ -27,10 +27,11 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class WebSocketCounterService implements IHeartbeatProcessor {
@@ -38,7 +39,7 @@ public class WebSocketCounterService implements IHeartbeatProcessor {
     public static final String PROP_RATE = "proxy.heartbeat-rate";
     public static final Long DEFAULT_RATE = 10000L;
 
-    @Inject
+    @Autowired
     protected Environment environment;
 
     private final ConcurrentHashMap<String, Long> wsHeartbeats = ProxyHashMap.create();

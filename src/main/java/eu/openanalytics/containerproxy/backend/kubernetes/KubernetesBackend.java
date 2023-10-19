@@ -86,7 +86,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.data.util.Pair;
 import org.springframework.security.core.Authentication;
 
-import javax.inject.Inject;
+
 import javax.json.JsonPatch;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -112,6 +112,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static eu.openanalytics.containerproxy.backend.kubernetes.PodPatcher.DEBUG_PROPERTY;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class KubernetesBackend extends AbstractContainerBackend {
 
@@ -131,7 +132,7 @@ public class KubernetesBackend extends AbstractContainerBackend {
 
 	private static final String ANNOTATION_MANIFEST_POLICY = "openanalytics.eu/sp-additional-manifest-policy";
 
-	@Inject
+	@Autowired
 	private PodPatcher podPatcher;
 
 	private KubernetesClient kubeClient;

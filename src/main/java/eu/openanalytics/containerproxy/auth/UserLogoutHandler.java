@@ -20,7 +20,7 @@
  */
 package eu.openanalytics.containerproxy.auth;
 
-import javax.inject.Inject;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -29,11 +29,12 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Component;
 
 import eu.openanalytics.containerproxy.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class UserLogoutHandler implements LogoutHandler {
 
-    @Inject
+    @Autowired
     private UserService userService;
 
     @Override

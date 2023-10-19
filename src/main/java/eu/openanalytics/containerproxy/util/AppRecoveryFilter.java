@@ -32,11 +32,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
-import javax.inject.Inject;
+
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * While the recovery is happening, the application may not be used.
@@ -45,10 +46,10 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class AppRecoveryFilter extends GenericFilterBean {
 
-    @Inject
+    @Autowired
     public AppRecoveryService appRecoveryService;
 
-    @Inject
+    @Autowired
     public Environment environment;
 
     private String renderedTemplate;

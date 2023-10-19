@@ -24,14 +24,15 @@ import eu.openanalytics.containerproxy.model.spec.ISpecExtension;
 import eu.openanalytics.containerproxy.spec.IProxySpecProvider;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class AbstractSpecExtensionProvider<T extends ISpecExtension> {
 
     private List<T> specs;
 
-    @Inject
+    @Autowired
     private IProxySpecProvider proxySpecProvider;
 
     @PostConstruct

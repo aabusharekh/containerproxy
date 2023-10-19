@@ -34,12 +34,13 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @ConditionalOnProperty(name = "spring.session.store-type", havingValue = "none")
@@ -49,7 +50,7 @@ public class UndertowSessionService extends AbstractSessionService {
 
     private final Log logger = LogFactory.getLog(UndertowSessionService.class);
 
-    @Inject
+    @Autowired
     private CustomSessionManagerFactory customInMemorySessionManagerFactory;
 
     // default value, note we cannot use 0 or -1 here as that would cause a dip when restarting ShinyProxy

@@ -50,7 +50,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.security.web.header.Header;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
+
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -61,6 +61,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * This component keeps track of which proxy mappings (i.e. URL endpoints) are currently registered,
@@ -81,15 +82,15 @@ public class ProxyMappingManager {
 
 	private volatile boolean isShuttingDown = false;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private HeartbeatService heartbeatService;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private ProxyService proxyService;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private AsyncProxyService asyncProxyService;
 

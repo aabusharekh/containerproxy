@@ -20,7 +20,7 @@
  */
 package eu.openanalytics.containerproxy.auth;
 
-import javax.inject.Inject;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
@@ -44,15 +44,15 @@ import eu.openanalytics.containerproxy.auth.impl.SocialAuthenticationBackend;
 @Primary
 public class AuthenticationBackendFactory extends AbstractFactoryBean<IAuthenticationBackend> {
 
-	@Inject
+	@Autowired
 	private Environment environment;
 	
-	@Inject
+	@Autowired
 	private ApplicationContext applicationContext;
 	
 	// These backends register some beans of their own, so must be instantiated here.
 	
-	@Inject
+	@Autowired
 	private KeycloakAuthenticationBackend keycloakBackend;
 	
 	@Autowired(required = false)

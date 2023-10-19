@@ -42,13 +42,14 @@ import org.xnio.conduits.ConduitStreamSourceChannel;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class HeartbeatService {
 
@@ -80,13 +81,13 @@ public class HeartbeatService {
         FALLBACK
     }
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     private ISessionService sessionService;
 
-    @Inject
+    @Autowired
     @Lazy
     private HeartbeatService self;
 

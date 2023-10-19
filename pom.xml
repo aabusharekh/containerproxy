@@ -84,13 +84,8 @@
             <artifactId>opensaml-saml-impl</artifactId>
             <version>4.1.1</version>
         </dependency-->
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>2.0.9</version>
-            <scope>test</scope>
-        </dependency>
+        
+
 
         <!-- Spring Boot Starters -->
         <dependency>
@@ -457,12 +452,12 @@
          <version>3.1.0</version>
          <type>jar</type>
         </dependency-->
-        <dependency>
+        <!--dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
             <version>1.7.36</version>
             <type>jar</type>
-        </dependency>
+        </dependency-->
     </dependencies>
 
     <dependencyManagement>

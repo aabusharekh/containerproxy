@@ -32,7 +32,8 @@ import org.springframework.core.env.Environment;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -60,7 +61,7 @@ public class JDBCCollector extends AbstractDbCollector {
 
 	private HikariDataSource ds;
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
 	private final String url;

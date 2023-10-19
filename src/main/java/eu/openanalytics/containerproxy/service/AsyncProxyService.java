@@ -27,21 +27,22 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PreDestroy;
-import javax.inject.Inject;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class AsyncProxyService {
 
     private final ExecutorService executor = Executors.newCachedThreadPool();
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private UserService userService;
 
     public Proxy startProxy(ProxySpec spec, List<RuntimeValue> runtimeValues, String proxyId, Map<String, String> parameters) {

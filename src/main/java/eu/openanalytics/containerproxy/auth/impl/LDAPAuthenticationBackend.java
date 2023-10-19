@@ -25,7 +25,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.inject.Inject;
+
 import javax.naming.InvalidNameException;
 import javax.naming.ldap.LdapName;
 import javax.naming.ldap.Rdn;
@@ -46,6 +46,7 @@ import org.springframework.security.ldap.DefaultSpringSecurityContextSource;
 import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator;
 
 import eu.openanalytics.containerproxy.auth.IAuthenticationBackend;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class LDAPAuthenticationBackend implements IAuthenticationBackend {
 
@@ -54,7 +55,7 @@ public class LDAPAuthenticationBackend implements IAuthenticationBackend {
 	private static final String STARTTLS_SIMPLE = "simple";
 	private static final String STARTTLS_EXTERNAL = "external";
 	
-	@Inject
+	@Autowired
 	private Environment environment;
 	
 	@Override

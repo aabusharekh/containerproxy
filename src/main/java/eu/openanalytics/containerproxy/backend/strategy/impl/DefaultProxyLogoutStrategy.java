@@ -31,7 +31,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Default logout behaviour.
@@ -41,18 +42,18 @@ public class DefaultProxyLogoutStrategy implements IProxyLogoutStrategy {
 
 	private static final String PROP_DEFAULT_STOP_PROXIES_ON_LOGOUT = "proxy.default-stop-proxy-on-logout";
 
-	@Inject
+	@Autowired
 	@Lazy
 	private ProxyService proxyService;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private AsyncProxyService asyncProxyService;
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
-	@Inject
+	@Autowired
 	private IProxySpecProvider specProvider;
 
 	private boolean defaultStopProxyOnLogout;

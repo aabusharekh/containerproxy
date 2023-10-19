@@ -44,20 +44,21 @@ import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.inject.Inject;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootTest(classes = {TestIntegrationOnSwarm.TestConfiguration.class, ContainerProxyApplication.class})
 @ContextConfiguration(initializers = PropertyOverrideContextInitializer.class)
 @ActiveProfiles("test-swarm")
 public class TestIntegrationOnSwarm {
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
     private boolean checkEverythingCleanedUp() throws DockerCertificateException, DockerException, InterruptedException {

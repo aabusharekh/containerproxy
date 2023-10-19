@@ -33,6 +33,7 @@ import eu.openanalytics.containerproxy.service.IdentifierService;
 import eu.openanalytics.containerproxy.service.RedisEventBridge;
 import eu.openanalytics.containerproxy.service.leader.redis.RedisLeaderService;
 import eu.openanalytics.containerproxy.service.portallocator.redis.RedisPortAllocator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
@@ -51,19 +52,19 @@ import org.springframework.integration.support.leader.LockRegistryLeaderInitiato
 import org.springframework.integration.support.locks.ExpirableLockRegistry;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 
-import javax.inject.Inject;
+
 
 @Configuration
 @ConditionalOnProperty(name = "proxy.store-mode", havingValue = "Redis")
 public class RedisStoreConfiguration {
 
-    @Inject
+    @Autowired
     private RedisConnectionFactory connectionFactory;
 
-    @Inject
+    @Autowired
     private IdentifierService identifierService;
 
-    @Inject
+    @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
 
     // Store beans

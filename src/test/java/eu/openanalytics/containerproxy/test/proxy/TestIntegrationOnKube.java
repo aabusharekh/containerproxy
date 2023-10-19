@@ -62,7 +62,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.inject.Inject;
+
 import java.io.ByteArrayInputStream;
 import java.net.URI;
 import java.util.Collections;
@@ -71,6 +71,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -93,13 +94,13 @@ import java.util.stream.Collectors;
 @ActiveProfiles("test")
 public class TestIntegrationOnKube extends KubernetesTestBase {
 
-    @Inject
+    @Autowired
     private Environment environment;
 
-    @Inject
+    @Autowired
     private ProxyService proxyService;
 
-    @Inject
+    @Autowired
     private UserService userService;
 
     /**

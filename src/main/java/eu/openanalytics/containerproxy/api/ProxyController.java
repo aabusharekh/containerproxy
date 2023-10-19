@@ -41,17 +41,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
+
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @RestController
 public class ProxyController extends BaseController {
 
-	@Inject
+	@Autowired
 	private ProxyService proxyService;
 
-	@Inject
+	@Autowired
 	private ApiSecurityService apiSecurityService;
 
 	@Operation(summary = "Get configured proxy specs. A configuration property controls whether the full spec or a limited subset is returned.", tags = "ContainerProxy")
